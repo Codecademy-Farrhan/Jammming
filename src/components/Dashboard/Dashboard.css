@@ -1,0 +1,27 @@
+.toolbar {
+  display: flex;
+  justify-content: flex-end; /* Push content to the sides */
+  position: fixed; /* Fix position to the top */
+  top: 0;
+  width: 100%; /* Full width */
+  box-sizing: border-box;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.profile-image {
+  width: 20px; /* Reduced size */
+  height: 20px; /* Maintain aspect ratio */
+  margin-right: 0.5rem;
+  border-radius: 50%;
+}
+
+.user-name {
+  font-size: 0.5rem; /* Adjusted font size */
+  color: #333;
+  margin: auto;
+}
