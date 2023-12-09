@@ -3,8 +3,8 @@
   padding: 10px;
   margin: 5px 0;
   border-radius: 5px;
-  border: 1px solid #ccc;
   box-sizing: border-box;
+  
 }
 
 .login-links {
@@ -23,11 +23,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
-.spotify-logo {
-  width: 50px; 
-  margin-right: 10px;
+.login-spotify-logo {
+  width: 70px; /* Spotify's Design Guidelines */
+  padding: 0.25rem;
 }
 
 .create-account-container {
@@ -45,5 +46,8 @@
   align-items: center; /* Centers horizontally in flex container */
   width: auto; /* Takes the space it needs */
   max-width: 500px; /* Prevents it from stretching too wide */
-  margin: 10px; /* Optional: adds some space around the container */
+}
+
+.login-button {
+  margin: 0.25rem;
 }

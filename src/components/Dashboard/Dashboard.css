@@ -1,6 +1,6 @@
 .toolbar {
   display: flex;
-  justify-content: flex-end; /* Push content to the sides */
+  justify-content: space-between; /* Push content to the sides */
   position: fixed; /* Fix position to the top */
   top: 0;
   width: 100%; /* Full width */
@@ -24,4 +24,15 @@
   font-size: 0.5rem; /* Adjusted font size */
   color: #333;
   margin: auto;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  
+}
+
+.dashboard-spotify-logo {
+  width: 70px;
 }

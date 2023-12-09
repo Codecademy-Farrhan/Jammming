@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Spotify from '../Util/Spotify';
 import './Login.css';
-import SpotifyLogo from './SpotifyLogo.jpg'
+import Spotify_Icon_RGB_Black from '../../assets/spotify-icons-logos/icons/01_RGB/02_PNG/Spotify_Icon_RGB_Black.png'
 
 const Login = () => {
 
@@ -25,7 +25,7 @@ const Login = () => {
       />
 
       <div className="spotify-login-section">
-        <img src={SpotifyLogo} alt="Spotify Logo" className="spotify-logo" />
+        <img src={Spotify_Icon_RGB_Black} alt="Spotify Logo" className="login-spotify-logo" />
         <button onClick={handleLogin} className='login-button'>
           Log in with Spotify
         </button>
