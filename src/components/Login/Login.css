@@ -1,10 +1,38 @@
+.create-account-container {
+  bottom: 20px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+
+.forgot-password-link, .create-account-link {
+  color: #007aff;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.login-button {
+  font-size: 1rem;
+  margin: 0.25rem;
+}
+
+.login-container {
+  align-items: center; /* Centers horizontally in flex container */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px; /* Prevents it from stretching too wide */
+  width: auto; /* Takes the space it needs */
+}
+
 .login-input {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0;
   border-radius: 5px;
   box-sizing: border-box;
-  
+  font-size: 1rem;
+  margin: 5px 0;
+  padding: 10px;
+  width: 100%;
 }
 
 .login-links {
@@ -13,41 +41,13 @@
   margin-top: 20px;
 }
 
-.forgot-password-link, .create-account-link {
-  color: #007aff; 
-  text-decoration: none;
-  font-size: 14px;
+.login-spotify-logo {
+  padding: 0.25rem;
+  width: 70px; /* Spotify's Design Guidelines */
 }
 
 .spotify-login-section {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  
-}
-
-.login-spotify-logo {
-  width: 70px; /* Spotify's Design Guidelines */
-  padding: 0.25rem;
-}
-
-.create-account-container {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-
-.login-container {
-  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers horizontally in flex container */
-  width: auto; /* Takes the space it needs */
-  max-width: 500px; /* Prevents it from stretching too wide */
-}
-
-.login-button {
-  margin: 0.25rem;
+  justify-content: center;
 }

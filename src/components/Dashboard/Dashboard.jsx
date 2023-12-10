@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Spotify from "../Util/Spotify";
+import SearchBar from "../SearchBar/SearchBar"
 import Spotify_Icon_RGB_Black from "../../assets/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Black.png"
 
 import "./Dashboard.css";
@@ -32,6 +33,10 @@ const Dashboard = () => {
       <div className="logo-section">
         <img src={Spotify_Icon_RGB_Black} alt="Spotify Logo" className="dashboard-spotify-logo" />
       </div>
+      <div className="searchbar-section">
+      <SearchBar />
+      </div>
+
       <div className="profile-section">
         {userProfile.images && userProfile.images.length > 0 && (
           <img

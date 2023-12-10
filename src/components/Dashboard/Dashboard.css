@@ -21,7 +21,7 @@
 }
 
 .user-name {
-  font-size: 0.5rem; /* Adjusted font size */
+  font-size: 1rem; /* Adjusted font size */
   color: #333;
   margin: auto;
 }
@@ -30,9 +30,15 @@
   display: flex;
   align-items: center;
   padding: 0.5rem;
-  
 }
 
 .dashboard-spotify-logo {
-  width: 70px;
+  width: 140px;
+}
+
+.searchbar-section {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  width: 100%;
 }
