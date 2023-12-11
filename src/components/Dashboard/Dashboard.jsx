@@ -11,7 +11,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("spotify_access_token");
-    console.log("Dashboard - Using Token:", token);
+    console.log("Dashboard - token:", token);
 
     const fetchUserProfile = async () => {
       if (token) {
@@ -36,7 +36,6 @@ const Dashboard = () => {
       <div className="searchbar-section">
       <SearchBar />
       </div>
-
       <div className="profile-section">
         {userProfile.images && userProfile.images.length > 0 && (
           <img

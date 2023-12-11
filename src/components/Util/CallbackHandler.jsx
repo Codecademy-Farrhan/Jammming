@@ -11,7 +11,6 @@ const CallbackHandler = () => {
 
     if (token) {
       localStorage.setItem("spotify_access_token", token);
-      console.log("CallbackHandler - Token stored in localStorage");
       navigate('/dashboard');
     } else {
       console.log("CallbackHandler - No token, navigating to /login");

@@ -15,7 +15,7 @@ function App() {
   
   useEffect(() => {
     const token = localStorage.getItem("spotify_access_token");
-    console.log("App - Current token:", token);
+    console.log("App - token:", token);
   }, []);
 
   return (
