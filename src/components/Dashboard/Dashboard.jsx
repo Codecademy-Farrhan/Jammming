@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+import Playlist from "../Playlist/Playlist";
 import Spotify from "../Util/Spotify";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
@@ -10,6 +11,8 @@ import "./Dashboard.css";
 const Dashboard = () => {
   const [userProfile, setUserProfile] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
+  const [playlistName, setPlaylistName] = useState("My Playlist");
+  const [playlistTracks, setPlaylistTracks] = useState([]);
 
   // Login
   useEffect(() => {
@@ -60,9 +63,13 @@ const Dashboard = () => {
           </p>
         </div>
       </div>
+      <div className="playlists-section">
+        <Playlist playlistName={playlistName} tracks={playlistTracks} />
+      </div>
       <div className="searchresults-section">
         <SearchResults searchResults={searchResults} />
       </div>
+ 
     </>
   );
 };

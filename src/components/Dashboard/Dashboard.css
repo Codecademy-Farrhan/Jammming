@@ -43,15 +43,23 @@
 }
 
 .searchbar-section {
-  display: flex;
   align-items: center;
+  box-sizing: border-box;
+  display: flex;
+
   padding: 0.5rem;
   width: 100%;
 }
 
 .searchresults-section {
-  margin-left: 120px;
+  box-sizing: border-box;
   margin-top: 50px;
-  overflow-y: auto ; /* Enables vertical scrolling */
+  overflow-y: auto; /* Enables vertical scrolling */
   width: 100%;
+}
+
+.playlists-section {
+  box-sizing: border-box;
+  margin-top: 50px;
+  max-width: 120px;
 }

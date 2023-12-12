@@ -1,0 +1,19 @@
+.Playlist {
+  align-items: center; /* Centers the content */
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+}
+
+.Playlist:hover {
+  background-color: #f8f8f8; /* light background on hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.Playlist input {
+  background-color: transparent; /* Remove any default styling */
+  border: none;
+  color: grey;
+  font-size: 1rem;
+  width: 100%; /* Full width of the container */
+}
