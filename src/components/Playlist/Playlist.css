@@ -15,5 +15,15 @@
   border: none;
   color: grey;
   font-size: 1rem;
+  text-align: center;
   width: 100%; /* Full width of the container */
+}
+
+.Playlist input:focus {
+  outline: none;  
+}
+
+.Playlist input::placeholder {
+  color: #aaa;
+  text-align: center;
 }

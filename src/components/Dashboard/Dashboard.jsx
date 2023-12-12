@@ -11,7 +11,7 @@ import "./Dashboard.css";
 const Dashboard = () => {
   const [userProfile, setUserProfile] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
-  const [playlistName, setPlaylistName] = useState("My Playlist");
+  const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
   // Login
@@ -64,12 +64,15 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="playlists-section">
-        <Playlist playlistName={playlistName} tracks={playlistTracks} />
+        <Playlist
+          playlistName={playlistName}
+          setPlaylistName={setPlaylistName}
+          playlistTracks={playlistTracks}
+        />
       </div>
       <div className="searchresults-section">
         <SearchResults searchResults={searchResults} />
       </div>
- 
     </>
   );
 };
