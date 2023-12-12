@@ -1,14 +1,16 @@
 import React from 'react';
-import Tracklist from '../Tracklist/Tracklist';
+import '../SearchBar/SearchBar';
 import './SearchResults.css';
 
-function SearchResults({ tracks, onAdd }) {
+const SearchResults = ({ searchData }) => {
     return (
-        <div className="SearchResults">
-            <h2>Results</h2>
-            <Tracklist tracks={tracks} onAdd={onAdd} />
-        </div>
+      <div className="search-results">
+        {results.map(result => (
+          <div key={result.id}>
+          </div>
+        ))}
+      </div>
     );
-}
-
-export default SearchResults;
+  };
+  
+  export default SearchResults;

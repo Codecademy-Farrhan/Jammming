@@ -3,7 +3,7 @@ import Spotify from '../Util/Spotify';
 import './Login.css';
 import Spotify_Icon_RGB_Black from '../../assets/spotify-icons-logos/icons/01_RGB/02_PNG/Spotify_Icon_RGB_Black.png'
 
-const Login = () => {
+function Login() {
 
   const handleLogin = () => {
     Spotify.redirectToSpotifyLogin();

@@ -58,10 +58,21 @@ const checkToken = () => {
 
 // getUserProfile function definition
 const getUserProfile = async (token) => {
-  const response = await fetch('https://api.spotify.com/v1/me', {
-    headers: { 'Authorization': `Bearer ${token}` }
-  });
-  return response.json();
+  try {
+    const response = await fetch("https://api.spotify.com/v1/me", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching userProfile:", error.message);
+    localStorage.removeItem("spotify_access_token");
+    localStorage.removeItem("spotify_token_expiry");
+    localStorage.removeItem("spotify_auth_state");
+    window.location.href = "/login";
+  }
 };
 
 export default {
