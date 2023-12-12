@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 import "./SearchBar.css";
 
-function SearchBar() {
+const SearchBar = ({ handleSearchData }) => {
   const token = localStorage.getItem("spotify_access_token");
-  console.log("SearchBar - token:", token);
+  // console.log("SearchBar - token:", token); // token check
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleKeyPress = async (event) => {
@@ -33,6 +33,7 @@ function SearchBar() {
 
         const searchData = await response.json();
         console.log("Search Data:", searchData);
+        handleSearchData(searchData);
       } catch (error) {
         console.error("Search Failed:", error);
       }

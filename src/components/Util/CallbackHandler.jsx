@@ -7,7 +7,7 @@ const CallbackHandler = () => {
 
   useEffect(() => {
     const token = Spotify.checkToken();
-    console.log("CallbackHandler - Token before localStorage:", token);
+    // console.log("CallbackHandler - Token before localStorage:", token); // token check
 
     if (token) {
       localStorage.setItem("spotify_access_token", token);

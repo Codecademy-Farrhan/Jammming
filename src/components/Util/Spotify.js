@@ -3,7 +3,7 @@ const redirectUri = "http://localhost:3000/callback";
 const scopes = ["playlist-modify-public"]; // Add other scopes as needed
 const stateKey = "spotify_auth_state";
 
-function generateRandomString(length) {
+const generateRandomString = (length) => {
   let text = "";
   let possible =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -13,7 +13,7 @@ function generateRandomString(length) {
   return text;
 }
 
-function redirectToSpotifyLogin() {
+const redirectToSpotifyLogin = () => {
   const state = generateRandomString(16);
   localStorage.setItem(stateKey, state);
   const url = new URL("https://accounts.spotify.com/authorize");
@@ -28,7 +28,7 @@ function redirectToSpotifyLogin() {
 
 const checkToken = () => {
   const storedToken = localStorage.getItem("spotify_access_token");
-  console.log("Spotify.js storedToken:", storedToken); // Log stored token
+  // console.log("Spotify.js storedToken:", storedToken); // token check
 
   if (storedToken) {
     return storedToken;
@@ -36,7 +36,7 @@ const checkToken = () => {
 
   const urlParams = new URLSearchParams(window.location.hash.substring(1));
   const urlAccessToken = urlParams.get("access_token");
-  console.log("URL Access Token:", urlAccessToken); // Log URL token
+  // console.log("URL Access Token:", urlAccessToken); // token check
   const urlExpiresIn = urlParams.get("expires_in");
   const urlState = urlParams.get("state");
   const storedState = localStorage.getItem(stateKey);

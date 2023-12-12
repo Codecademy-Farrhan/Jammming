@@ -22,6 +22,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   max-width: 500px; /* Prevents it from stretching too wide */
   width: auto; /* Takes the space it needs */
 }

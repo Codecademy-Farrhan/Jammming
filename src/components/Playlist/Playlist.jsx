@@ -2,7 +2,7 @@ import React from 'react';
 import Tracklist from '../Tracklist/Tracklist';
 import './Playlist.css';
 
-function Playlist({ playlistName, playlistTracks, onNameChange, onRemove }) {
+const Playlist = ({ playlistName, playlistTracks, onNameChange, onRemove }) => {
     const handleNameChange = (e) => {
         onNameChange(e.target.value);
     };

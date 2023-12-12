@@ -1,7 +1,7 @@
 import React from 'react';
 import './Track.css';
 
-function Track({ track, onAdd, onRemove }) {
+const Track = ({ track, onAdd, onRemove }) => {
     return (
         <div className="Track">
             <div className="Track-information">

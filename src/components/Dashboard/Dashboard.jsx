@@ -2,27 +2,35 @@ import React, { useState, useEffect } from "react";
 
 import Spotify from "../Util/Spotify";
 import SearchBar from "../SearchBar/SearchBar";
+import SearchResults from "../SearchResults/SearchResults";
 import Spotify_Icon_RGB_Black from "../../assets/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Black.png";
 
 import "./Dashboard.css";
 
-function Dashboard() {
+const Dashboard = () => {
   const [userProfile, setUserProfile] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
 
+  // Login
   useEffect(() => {
     const token = localStorage.getItem("spotify_access_token");
-    console.log("Dashboard - token:", token);
+    // console.log("Dashboard - token:", token); // token check
 
     const fetchUserProfile = async () => {
       if (token) {
         const profileData = await Spotify.getUserProfile(token);
-        console.log("Dashboard - User Profile Data:", profileData);
+        // console.log("Dashboard - User Profile Data:", profileData); // data check
         setUserProfile(profileData);
       }
     };
 
     fetchUserProfile();
   }, []); // Run this effect when token changes
+
+  // SearchResults
+  const handleSearchData = (results) => {
+    setSearchResults(results);
+  };
 
   return (
     <>
@@ -35,7 +43,7 @@ function Dashboard() {
           />
         </div>
         <div className="searchbar-section">
-          <SearchBar />
+          <SearchBar handleSearchData={handleSearchData} />
         </div>
         <div className="profile-section">
           {userProfile &&
@@ -52,8 +60,11 @@ function Dashboard() {
           </p>
         </div>
       </div>
+      <div className="searchresults-section">
+        <SearchResults searchResults={searchResults} />
+      </div>
     </>
   );
-}
+};
 
 export default Dashboard;

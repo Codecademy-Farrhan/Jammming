@@ -11,11 +11,11 @@ import CallbackHandler from '../Util/CallbackHandler';
 
 import "./App.css";
 
-function App() {
+const App = () => {
   
   useEffect(() => {
     const token = localStorage.getItem("spotify_access_token");
-    console.log("App - token:", token);
+    // console.log("App - token:", token); // token check
   }, []);
 
   return (

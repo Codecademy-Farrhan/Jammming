@@ -1,15 +1,19 @@
 .toolbar {
+  box-sizing: border-box;
   display: flex;
+  height: 50px;
   justify-content: space-between; /* Push content to the sides */
   position: fixed; /* Fix position to the top */
   top: 0;
   width: 100%; /* Full width */
-  box-sizing: border-box;
 }
 
 .profile-section {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
+  max-width: 140px;
+
   padding: 0.5rem;
 }
 
@@ -27,18 +31,27 @@
 }
 
 .logo-section {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
+  max-width: 120px;
   padding: 0.5rem;
 }
 
 .dashboard-spotify-logo {
-  width: 100px;
+  width: 100%;
 }
 
 .searchbar-section {
   display: flex;
   align-items: center;
   padding: 0.5rem;
+  width: 100%;
+}
+
+.searchresults-section {
+  margin-left: 120px;
+  margin-top: 50px;
+  overflow-y: auto ; /* Enables vertical scrolling */
   width: 100%;
 }

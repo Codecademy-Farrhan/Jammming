@@ -3,7 +3,7 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center; /* Centers children vertically */
+  align-items: normal;
   text-align: center;
   
 }

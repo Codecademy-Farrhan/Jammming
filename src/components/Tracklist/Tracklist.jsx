@@ -2,7 +2,7 @@ import React from 'react';
 import Track from '../Track/Track';
 import './Tracklist.css';
 
-function Tracklist() {
+const Tracklist = () => {
     return (
         <div className="tracklist">
             {tracks.map(track => (
