@@ -13,8 +13,14 @@
 }
 
 .login-button {
-  font-size: 1rem;
+  background-color: #1a1a1a;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.5rem 1rem;
   margin: 0.25rem;
+  padding: 1em;
+
 }
 
 .login-container {
@@ -28,7 +34,7 @@
 }
 
 .login-input {
-  border-radius: 5px;
+  border-radius: 0.5rem;
   box-sizing: border-box;
   font-size: 1rem;
   margin: 5px 0;

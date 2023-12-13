@@ -1,0 +1,45 @@
+.Track {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  padding: 10px;
+  font-size: 1rem;
+  background-color: white; /* Default background */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.Track:hover {
+    background-color: #f8f8f8; /* light background on hover */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.Track-information {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.Track-information h3 {
+  margin: 0;
+  color: #333; /* Dark text for track name */
+}
+
+.Track-information p {
+  margin: 0;
+  color: #333;
+  font-size: 0.5rem; /* Slightly smaller font size */
+}
+
+.Track-action {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #1db954; /* Spotify green for add/remove button */
+  margin-left: 10px;
+  padding: 0px;
+
+}
+
+.listen-logo {
+  height: 20px;
+  width: 20px;
+}

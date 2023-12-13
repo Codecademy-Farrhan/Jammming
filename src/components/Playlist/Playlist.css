@@ -1,29 +1,56 @@
 .Playlist {
   align-items: center; /* Centers the content */
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 5px 10px;
 }
 
 .Playlist:hover {
-  background-color: #f8f8f8; /* light background on hover */
+  background-color: #f8f8f8;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .Playlist input {
   background-color: transparent; /* Remove any default styling */
   border: none;
+  box-sizing: border-box;
   color: grey;
   font-size: 1rem;
+  padding: 0;
   text-align: center;
   width: 100%; /* Full width of the container */
+
 }
 
 .Playlist input:focus {
-  outline: none;  
+  outline: none;
 }
 
 .Playlist input::placeholder {
   color: #aaa;
   text-align: center;
+}
+
+.Playlist-track {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  color: #333; /* Dark text for track name */
+  padding: 10px;
+}
+
+.Playlist-track-action {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #1db954; /* Spotify green for remove button */
+  font-size: 1rem; /* Adjust button size */
+  margin-left: 10px;
+  padding: 0px;
+}
+
+.Playlist-track span {
+  flex-grow: 1;
+  font-size: 0.5rem;
+  text-align: left;  
 }

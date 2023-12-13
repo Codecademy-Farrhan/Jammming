@@ -35,6 +35,16 @@ const Dashboard = () => {
     setSearchResults(results);
   };
 
+   // Playlist
+   const addTrack = (addTrack) => {
+    setPlaylistTracks([...playlistTracks, addTrack]);
+  };
+
+  const removeTrack = (removeTrack) => {
+    const newPlaylistTracks = playlistTracks.filter(savedTrack => savedTrack.id !== removeTrack.id);
+    setPlaylistTracks(newPlaylistTracks);
+  };
+
   return (
     <>
       <div className="toolbar">
@@ -66,12 +76,13 @@ const Dashboard = () => {
       <div className="playlists-section">
         <Playlist
           playlistName={playlistName}
-          setPlaylistName={setPlaylistName}
           playlistTracks={playlistTracks}
+          setPlaylistName={setPlaylistName}
+          removeTrack={removeTrack} 
         />
       </div>
       <div className="searchresults-section">
-        <SearchResults searchResults={searchResults} />
+        <SearchResults searchResults={searchResults} addTrack={addTrack}/>
       </div>
     </>
   );
