@@ -92,6 +92,21 @@ export const createPlaylist = async (playlistName, token, userId) => {
   return data.id;
 };
 
+export const updatePlaylistName = async (playlistId, token, newName) => {
+  const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name: newName }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+};
+
 export const addTracksToPlaylist = async (playlistId, token, trackUris) => {
   // Ensure trackUris is an array of track URIs
   if (!Array.isArray(trackUris)) {
@@ -134,5 +149,6 @@ export default {
   createPlaylist,
   getUserProfile,
   redirectToSpotifyLogin,  
-  removeTrackFromPlaylist
+  removeTrackFromPlaylist,
+  updatePlaylistName
 };

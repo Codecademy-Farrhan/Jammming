@@ -18,7 +18,7 @@ const Dashboard = () => {
   // Login
   useEffect(() => {
     const token = localStorage.getItem("spotify_access_token");
-    console.log("Dashboard - token:", token); // token check
+    // console.log("Dashboard - token:", token); // token check
 
     const fetchUserProfile = async () => {
       if (token) {
@@ -50,26 +50,26 @@ const Dashboard = () => {
 
   const handleSavePlaylistToSpotify = async () => {
     const token = localStorage.getItem("spotify_access_token");
-    // console.log("handleSavePlaylistToSpotify token:", token);
     const userId = userProfile.id;
-    // console.log("handleSavePlaylistToSpotify userId:", userId);
-    const isPublic = true;
 
-    const createPlaylist = await Spotify.createPlaylist(
-      playlistName,
-      token,
-      userId
-    );
-    console.log("Dashboard - About to Set Playlist ID:", createPlaylist);
-    setPlaylistId(createPlaylist);
-    console.log("Dashboard - Set Playlist ID:", createPlaylist);
+    if (!playlistName) {
+      alert("Please enter a playlist name.");
+      return;
+    }
+
+    if (!playlistId) {
+      // POST
+      const createdPlaylistId = await Spotify.createPlaylist(
+        playlistName,
+        token,
+        userId
+      );
+      setPlaylistId(createdPlaylistId);
+    } else {
+      // PUT
+      await Spotify.updatePlaylistName(playlistId, token, playlistName);
+    }
   };
-
-  console.log("Dashboard - Render with Playlist ID:", playlistId);
-
-  useEffect(() => {
-    console.log("Dashboard - Playlist ID changed:", playlistId);
-  }, [playlistId]);
 
   return (
     <>

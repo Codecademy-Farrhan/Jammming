@@ -11,7 +11,7 @@ const Playlist = ({
   removeTrack,
   setPlaylistName,
 }) => {
-  console.log("Playlist - Received Playlist ID:", playlistId);
+  // console.log("Playlist - Received Playlist ID:", playlistId);
 
   const handleNameChange = (e) => {
     setPlaylistName(e.target.value);
@@ -36,7 +36,7 @@ const Playlist = ({
     }
     return <div>No tracks available.</div>;
   };
-  console.log("Playlist - Render with Playlist ID:", playlistId);
+  // console.log("Playlist - Render with Playlist ID:", playlistId);
 
   return (
     <div className="Playlist">
