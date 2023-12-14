@@ -10,14 +10,6 @@ const Track = ({
   playlistId,
   source,
 }) => {
-  console.log("Track - Component Received Playlist ID:", playlistId);
-
-  useEffect(() => {
-    if (playlistId) {
-      console.log("Track - useEffect - Playlist ID changed to:", playlistId);
-    }
-  }, [playlistId]);
-
   const handleAddTrack = async () => {
     if (!playlistId) {
       console.error("No playlist ID available");
@@ -26,12 +18,6 @@ const Track = ({
 
     const token = localStorage.getItem("spotify_access_token");
     const trackUri = track.uri;
-    console.log(
-      "Track - Adding Track with Playlist ID:",
-      playlistId,
-      "and URI:",
-      trackUri
-    );
 
     try {
       // Ensure trackUri is passed as an array

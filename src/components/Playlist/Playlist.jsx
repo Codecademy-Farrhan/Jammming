@@ -11,17 +11,12 @@ const Playlist = ({
   removeTrack,
   setPlaylistName,
 }) => {
-  // console.log("Playlist - Received Playlist ID:", playlistId);
 
   const handleNameChange = (e) => {
     setPlaylistName(e.target.value);
   };
 
   const renderTracks = () => {
-    if (!playlistId) {
-      return <div>Loading...</div>; // Show a loading message or spinner
-    }
-
     if (playlistTracks.length > 0) {
       return playlistTracks.map((track) => (
         <Track
@@ -34,28 +29,30 @@ const Playlist = ({
         />
       ));
     }
-    return <div>No tracks available.</div>;
   };
-  // console.log("Playlist - Render with Playlist ID:", playlistId);
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSavePlaylistToSpotify();
+    }
+  };
+    
   return (
     <div className="Playlist">
       <div className="Playlist-input">
         <input
           value={playlistName}
           onChange={handleNameChange}
+          onKeyDown={handleKeyDown}
           placeholder="New Playlist"
         />
-        <button
-          onClick={handleSavePlaylistToSpotify}
-          className="save-playlist-button"
-        >
-          ✔
-        </button>
+        {/* You can remove the button if it's no longer needed */}
       </div>
       <div className="Playlist-tracks">{renderTracks()}</div>
     </div>
   );
+  
+  
 };
 
 export default Playlist;

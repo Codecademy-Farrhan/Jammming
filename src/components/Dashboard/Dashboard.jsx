@@ -82,7 +82,7 @@ const Dashboard = () => {
           />
         </div>
         <div className="searchbar-section">
-          <SearchBar handleSearchData={handleSearchData} />
+          <SearchBar handleSearchData={handleSearchData} playlistId={playlistId} />
         </div>
         <div className="profile-section">
           {userProfile &&

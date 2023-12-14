@@ -12,9 +12,9 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  max-width: 140px;
-
+  max-width: 160px;
   padding: 0.5rem;
+  padding-right: 1rem;
 }
 
 .profile-image {
@@ -28,6 +28,7 @@
   font-size: 1rem; /* Adjusted font size */
   color: #333;
   margin: auto;
+  width: auto;
 }
 
 .logo-section {
@@ -55,6 +56,7 @@
   box-sizing: border-box;
   margin-top: 50px;
   overflow-y: auto; /* Enables vertical scrolling */
+  padding: 10px 8px;
   width: 100%;
 }
 
