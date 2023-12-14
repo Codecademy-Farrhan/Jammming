@@ -5,11 +5,6 @@
   flex-direction: column;
 }
 
-.Playlist:hover {
-  background-color: #f8f8f8;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
 .Playlist input {
   background-color: transparent; /* Remove any default styling */
   border: none;
@@ -17,9 +12,15 @@
   color: grey;
   font-size: 1rem;
   padding: 0;
-  text-align: center;
   width: 100%; /* Full width of the container */
+}
 
+.Playlist-input {
+  background-color: transparent; /* Remove any default styling */
+  border: none;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%; /* Full width of the container */
 }
 
 .Playlist input:focus {
@@ -31,12 +32,20 @@
   text-align: center;
 }
 
+.Playlist-tracks {
+  flex-grow: 1; /* Expand to take the remaining space */
+  width: 100%; /* Full width of the container */
+  display: flex;
+  flex-direction: column; /* Display tracks vertically */
+}
+
 .Playlist-track {
   align-items: center;
   box-sizing: border-box;
-  display: flex;
   color: #333; /* Dark text for track name */
-  padding: 10px;
+  display: flex;
+  padding-left: 10px;
+  
 }
 
 .Playlist-track-action {
@@ -53,4 +62,15 @@
   flex-grow: 1;
   font-size: 0.5rem;
   text-align: left;  
+
+}
+
+.save-playlist-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #1db954; /* Spotify green for add/remove button */
+  font-size: 0.5rem;
+  margin-left: 10px;
+  padding: 0px;
 }

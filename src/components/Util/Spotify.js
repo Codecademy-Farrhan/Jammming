@@ -1,6 +1,6 @@
 const clientId = "015db15f271c4c6799f2d61e2b130e19";
 const redirectUri = "http://localhost:3000/callback";
-const scopes = ["playlist-modify-public"]; // Add other scopes as needed
+const scopes = ["playlist-modify-public"];
 const stateKey = "spotify_auth_state";
 
 const generateRandomString = (length) => {
@@ -75,8 +75,48 @@ const getUserProfile = async (token) => {
   }
 };
 
+export const createPlaylist = async (playlistName, token, userId) => {
+  const response = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: playlistName,
+      public: true
+    }),
+  });
+
+  const data = await response.json();
+  return data.id;
+};
+
+export const addTracksToPlaylist = async (playlistId, token, trackUris) => {
+  // Ensure trackUris is an array of track URIs
+  if (!Array.isArray(trackUris)) {
+    console.error("trackUris must be an array");
+    return;
+  }
+
+  const payload = {
+    uris: trackUris // This should be an array of track URIs
+  };
+
+  const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload) // Convert the payload to a JSON string
+  });
+};
+
 export default {
+  addTracksToPlaylist,
   checkToken,
-  redirectToSpotifyLogin,
+  createPlaylist,
   getUserProfile,
+  redirectToSpotifyLogin,  
 };

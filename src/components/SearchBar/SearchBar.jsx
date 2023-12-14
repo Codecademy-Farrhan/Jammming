@@ -9,7 +9,7 @@ const SearchBar = ({ handleSearchData }) => {
 
   const handleKeyPress = async (event) => {
     if (event.key === "Enter") {
-      console.log("Search Artist, Song or Album:", searchTerm);
+      // console.log("Search Artist, Song or Album:", searchTerm);
       if (!token) {
         console.log("No token available.");
         return;
@@ -32,7 +32,7 @@ const SearchBar = ({ handleSearchData }) => {
         }
 
         const searchData = await response.json();
-        console.log("Search Data:", searchData);
+        // console.log("Search Data:", searchData);
         handleSearchData(searchData);
       } catch (error) {
         console.error("Search Failed:", error);

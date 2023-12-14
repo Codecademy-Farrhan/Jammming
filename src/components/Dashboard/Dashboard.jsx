@@ -11,13 +11,14 @@ import "./Dashboard.css";
 const Dashboard = () => {
   const [userProfile, setUserProfile] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
+  const [playlistId, setPlaylistId] = useState(null);
   const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
   // Login
   useEffect(() => {
     const token = localStorage.getItem("spotify_access_token");
-    // console.log("Dashboard - token:", token); // token check
+    console.log("Dashboard - token:", token); // token check
 
     const fetchUserProfile = async () => {
       if (token) {
@@ -35,15 +36,40 @@ const Dashboard = () => {
     setSearchResults(results);
   };
 
-   // Playlist
-   const addTrack = (addTrack) => {
+  // Playlist
+  const addTrack = (addTrack) => {
     setPlaylistTracks([...playlistTracks, addTrack]);
   };
 
   const removeTrack = (removeTrack) => {
-    const newPlaylistTracks = playlistTracks.filter(savedTrack => savedTrack.id !== removeTrack.id);
+    const newPlaylistTracks = playlistTracks.filter(
+      (savedTrack) => savedTrack.id !== removeTrack.id
+    );
     setPlaylistTracks(newPlaylistTracks);
   };
+
+  const handleSavePlaylistToSpotify = async () => {
+    const token = localStorage.getItem("spotify_access_token");
+    // console.log("handleSavePlaylistToSpotify token:", token);
+    const userId = userProfile.id;
+    // console.log("handleSavePlaylistToSpotify userId:", userId);
+    const isPublic = true;
+
+    const createPlaylist = await Spotify.createPlaylist(
+      playlistName,
+      token,
+      userId
+    );
+    console.log("Dashboard - About to Set Playlist ID:", createPlaylist);
+    setPlaylistId(createPlaylist);
+    console.log("Dashboard - Set Playlist ID:", createPlaylist);
+  };
+
+  console.log("Dashboard - Render with Playlist ID:", playlistId);
+
+  useEffect(() => {
+    console.log("Dashboard - Playlist ID changed:", playlistId);
+  }, [playlistId]);
 
   return (
     <>
@@ -75,14 +101,20 @@ const Dashboard = () => {
       </div>
       <div className="playlists-section">
         <Playlist
+          handleSavePlaylistToSpotify={handleSavePlaylistToSpotify}
+          playlistId={playlistId}
           playlistName={playlistName}
           playlistTracks={playlistTracks}
           setPlaylistName={setPlaylistName}
-          removeTrack={removeTrack} 
+          removeTrack={removeTrack}
         />
       </div>
       <div className="searchresults-section">
-        <SearchResults searchResults={searchResults} addTrack={addTrack}/>
+        <SearchResults
+          searchResults={searchResults}
+          addTrack={addTrack}
+          playlistId={playlistId}
+        />
       </div>
     </>
   );

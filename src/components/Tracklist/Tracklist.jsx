@@ -12,6 +12,7 @@ const Tracklist = ({ tracks, addTrack, removeTrack, isInPlaylist }) => {
           addTrack={addTrack} 
           removeTrack={removeTrack}
           isInPlaylist={isInPlaylist} 
+          playlistName={playlistName}  
         />
       ))}
     </div>
