@@ -45,7 +45,6 @@
   color: #333; /* Dark text for track name */
   display: flex;
   padding-left: 10px;
-  
 }
 
 .Playlist-track-action {
@@ -61,8 +60,7 @@
 .Playlist-track span {
   flex-grow: 1;
   font-size: 0.5rem;
-  text-align: left;  
-
+  text-align: left;
 }
 
 .save-playlist-button {
@@ -72,5 +70,23 @@
   color: #1db954; /* Spotify green for add/remove button */
   font-size: 0.5rem;
   margin-left: 10px;
+  padding: 0px;
+}
+
+.Track.playlist-track {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  font-size: 0.5rem;
+  padding: 0;
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.Track.playlist-track:hover {
+  background-color: transparent; /* light background on hover */
+  box-shadow:none
+}
+
+.Track {
   padding: 0px;
 }

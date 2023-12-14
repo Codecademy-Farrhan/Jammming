@@ -113,10 +113,26 @@ export const addTracksToPlaylist = async (playlistId, token, trackUris) => {
   });
 };
 
+export const removeTrackFromPlaylist = async (playlistId, token, trackUri) => {
+  const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      tracks: [{ uri: trackUri }]
+    }),
+  });
+  return response.json();
+};
+
+
 export default {
   addTracksToPlaylist,
   checkToken,
   createPlaylist,
   getUserProfile,
   redirectToSpotifyLogin,  
+  removeTrackFromPlaylist
 };

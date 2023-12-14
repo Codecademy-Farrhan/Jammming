@@ -1,5 +1,5 @@
 import React from "react";
-import Track from '../Track/Track';
+import Track from "../Track/Track";
 import "./SearchResults.css";
 
 const SearchResults = ({ searchResults, addTrack, playlistId }) => {
@@ -10,12 +10,13 @@ const SearchResults = ({ searchResults, addTrack, playlistId }) => {
       {tracks.map((track) => {
         if (playlistId) {
           return (
-            <Track 
-              key={track.id} 
-              track={track} 
-              addTrack={() => addTrack(track)} 
+            <Track
+              addTrack={() => addTrack(track)}
               isInPlaylist={false}
+              key={track.id}
               playlistId={playlistId}
+              track={track}
+              source="search"
             />
           );
         } else {

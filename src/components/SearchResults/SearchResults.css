@@ -1,0 +1,13 @@
+.Track.search-track {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    font-size: 1rem;
+    padding: 0;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+
+  .Track.search-track:hover {
+    background-color: transparent; /* light background on hover */
+    box-shadow:none
+}

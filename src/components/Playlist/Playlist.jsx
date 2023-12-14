@@ -21,20 +21,22 @@ const Playlist = ({
     if (!playlistId) {
       return <div>Loading...</div>; // Show a loading message or spinner
     }
-  
+
     if (playlistTracks.length > 0) {
       return playlistTracks.map((track) => (
         <Track
+          isInPlaylist={true}
           key={track.id}
-          track={track}
           playlistId={playlistId}
+          track={track}
           removeTrack={removeTrack}
+          source="playlist"
         />
       ));
     }
     return <div>No tracks available.</div>;
   };
-    console.log("Playlist - Render with Playlist ID:", playlistId);
+  console.log("Playlist - Render with Playlist ID:", playlistId);
 
   return (
     <div className="Playlist">
@@ -51,9 +53,7 @@ const Playlist = ({
           ✔
         </button>
       </div>
-      <div className="Playlist-tracks">
-        {renderTracks()}
-      </div>
+      <div className="Playlist-tracks">{renderTracks()}</div>
     </div>
   );
 };
